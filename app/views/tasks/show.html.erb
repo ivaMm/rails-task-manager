@@ -1,4 +1,9 @@
-<h2><%= @task.title %></h2>
-<p><%= @task.details %></p>
-
-<%= link_to "↩️ Back to list", tasks_path %>
+<div class="container">
+  <%= link_to "📝 Edit this task", edit_task_path(@task) %>
+  <h1><%= @task.title %></h1>
+  <p><%= @task.details %></p>
+  <p>
+  <%= @task.completed ? "☑️ This task is completed" : "⬜️ This task is not completed yet" %>
+  </p>
+  <%= link_to "↩️ Back to list", tasks_path %>
+</div>
