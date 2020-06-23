@@ -1,1 +1,5 @@
 <%= render "form", task: @task %>
+
+<% if flash[:task_errors] %>
+  <%= @task.errors.full_messages.join %>
+<% end %>

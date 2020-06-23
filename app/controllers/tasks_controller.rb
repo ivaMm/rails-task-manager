@@ -13,8 +13,12 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.save
-    redirect_to task_path(@task) # !!
+    if @task.save
+      redirect_to task_path(@task)
+    else
+      flash[:task_errors] = @task.errors.full_messages
+      render :new
+    end
   end
 
   def edit

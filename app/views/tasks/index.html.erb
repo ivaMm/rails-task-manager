@@ -3,11 +3,9 @@
   <ul>
     <% @tasks.each do |task| %>
       <li>
-        <%= form_for(task) do |f| %>
-          <%= f.check_box :completed %>
+          <%= task.completed ? "☑️" : "⬜️" %>
           <%= link_to task.title, task_path(task) %>
   	      <%= link_to "🗑 delete", task_path(task), method: :delete, data: {confirm: "Are you sure?" } %>
-        <% end %>
       </li>
     <% end %>
   </ul>
